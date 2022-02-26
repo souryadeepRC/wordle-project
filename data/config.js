@@ -23,11 +23,11 @@ var LETTER_DETAIL = [
     { 'Letter': 'V', 'Status': false },
     { 'Letter': 'W', 'Status': false },
     { 'Letter': 'X', 'Status': false },
-    { 'Letter': 'V', 'Status': false },
+    { 'Letter': 'Y', 'Status': false },
     { 'Letter': 'Z', 'Status': false }
 ]
 
 const LETTER_LIST = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-    'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'V', 'Z'
+    'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 ]
 let MAX_LETTER_COUNT = 5

@@ -15,8 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <script type="text/javascript" src="data/data.json"></script>
-    <script type="text/javascript" src="data/words.js"></script>
+   <!--  <script type="text/javascript" src="data/data.json"></script> -->
+    <script type="text/javascript" src="data/Five_Letter_Word.js"></script>
     <script type="text/javascript" src="data/config.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 
@@ -24,42 +24,72 @@
 </head>
 
 <body onload="loadData()">
+    <div id="WORDList"></div>
     <div class="">
-        <h5 class="text-center text-uppercase">Eliminated Letter</h5>
-        <hr>
-        <div class="d-flex flex-wrap w-75 m-auto" id="EliminatedLetterContainer"></div>
+        <h5 class="text-center text-uppercase m-0 py-2 bg-black text-white">Eliminated Letter</h5> 
+        <div class="d-flex flex-wrap w-95 m-auto justify-content-between" id="EliminatedLetterContainer">
+            <p id="A" onClick="selectLetter('A')">A</p>
+            <p id="B" onClick="selectLetter('B')">B</p>
+            <p id="C" onClick="selectLetter('C')">C</p>
+            <p id="D" onClick="selectLetter('D')">D</p>
+            <p id="E" onClick="selectLetter('E')">E</p>
+            <p id="F" onClick="selectLetter('F')">F</p>
+            <p id="G" onClick="selectLetter('G')">G</p>
+            <p id="H" onClick="selectLetter('H')">H</p>
+            <p id="I" onClick="selectLetter('I')">I</p>
+            <p id="J" onClick="selectLetter('J')">J</p>
+            <p id="K" onClick="selectLetter('K')">K</p>
+            <p id="L" onClick="selectLetter('L')">L</p>
+            <p id="M" onClick="selectLetter('M')">M</p>
+            <p id="N" onClick="selectLetter('N')">N</p>
+            <p id="O" onClick="selectLetter('O')">O</p>
+            <p id="P" onClick="selectLetter('P')">P</p>
+            <p id="Q" onClick="selectLetter('Q')">Q</p>
+            <p id="R" onClick="selectLetter('R')">R</p>
+            <p id="S" onClick="selectLetter('S')">S</p>
+            <p id="T" onClick="selectLetter('T')">T</p>
+            <p id="U" onClick="selectLetter('U')">U</p>
+            <p id="V" onClick="selectLetter('V')">V</p>
+            <p id="W" onClick="selectLetter('W')">W</p>
+            <p id="X" onClick="selectLetter('X')">X</p>
+            <p id="Y" onClick="selectLetter('Y')">Y</p>
+            <p id="Z" onClick="selectLetter('Z')">Z</p>
+        </div>
     </div>
-    <div class="d-flex w-100 ">
-        <div class="w-50">
-            <h5 class="text-center text-uppercase">ImProper Position</h5>
+    <div class="d-flex w-100 p-2 flex-wrap">
+        <div class="w-100">
+            <div class="text-center text-uppercase  bg-black text-white">
+                <h5 class="m-0">ImProper Position</h5><i>Fill letters in comma separated format</i>
+            </div>
             <div class="d-flex justify-content-center">
-                <input type="text" name="ImpropPosition0" id="ImpropPosition0">
-                <input type="text" name="ImpropPosition1" id="ImpropPosition1">
-                <input type="text" name="ImpropPosition2" id="ImpropPosition2">
-                <input type="text" name="ImpropPosition3" id="ImpropPosition3">
-                <input type="text" name="ImpropPosition4" id="ImpropPosition4">
+                <input type="text" name="ImpropPosition0" id="ImpropPosition0" placeholder="1st">
+                <input type="text" name="ImpropPosition1" id="ImpropPosition1" placeholder="2nd">
+                <input type="text" name="ImpropPosition2" id="ImpropPosition2" placeholder="3rd">
+                <input type="text" name="ImpropPosition3" id="ImpropPosition3" placeholder="4th">
+                <input type="text" name="ImpropPosition4" id="ImpropPosition4" placeholder="5th">
             </div>
         </div>
 
-        <div class="w-50">
-            <h5 class="text-center text-uppercase">Proper Position</h5>
+        <div class="w-100">
+            <h5 class="text-center text-uppercase  bg-black text-white">Proper Position</h5>
             <div class="d-flex justify-content-center">
-                <input type="text" name="propPosition0" id="propPosition0">
-                <input type="text" name="propPosition1" id="propPosition1">
-                <input type="text" name="propPosition2" id="propPosition2">
-                <input type="text" name="propPosition3" id="propPosition3">
-                <input type="text" name="propPosition4" id="propPosition4">
+                <input type="text" name="propPosition0" id="propPosition0" placeholder="1st">
+                <input type="text" name="propPosition1" id="propPosition1" placeholder="2nd">
+                <input type="text" name="propPosition2" id="propPosition2" placeholder="3rd">
+                <input type="text" name="propPosition3" id="propPosition3" placeholder="4th">
+                <input type="text" name="propPosition4" id="propPosition4" placeholder="5th">
             </div>
         </div>
     </div>
 
     <div class="d-flex justify-content-evenly m-1">
         <button class="btn btn-primary" id="GenerateSolutionBtn">Generate Possible Solution</button>
+        <button class="btn btn-info" id="ClearBtn">Clear</button>
     </div>
     <div class="">
-        <h5 class="text-center text-uppercase">Possible Solution</h5>
+        <h5 class="text-center text-uppercase border bg-black text-white">Possible Solution</h5>
         <hr>
-        <div class="d-flex justify-content-evenly flex-wrap" id="OutComeContainer"></div>
+        <div  tabindex="0" class="d-flex justify-content-evenly flex-wrap" id="OutComeContainer"></div>
     </div>
 </body>
 

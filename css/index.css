@@ -5,10 +5,12 @@
 
 a,
 p {
-    width: 8%;
+    width: 25%;
+    font-weight: bold;
     text-align: center;
     background: #d0e9f5;
-    color: black;
+    color: #064970;
+    box-shadow: inset 1px 1px 5px 1px #4c84d9;
     padding: 0.5rem;
     text-decoration: none;
     border-radius: 4px;
@@ -17,7 +19,7 @@ p {
 }
 
 p {
-    width: 10%;
+    width: 14%;
 }
 
 a:hover,
@@ -29,4 +31,24 @@ p:hover {
 input {
     width: 18%;
     text-transform: uppercase;
+    text-align: center;
 }
+.w-95{
+    width: 95%;
+}
+i{
+    text-transform: capitalize;
+    font-size: 0.7rem;
+}
+@media screen and (min-width: 480px) {
+    p {
+        width: 7%;
+    }a {
+        width: 15%;
+    }
+  }
+  @media screen and (min-width: 480px) {
+    a {
+        width: 8%;
+    }
+  }
