@@ -78,7 +78,7 @@ const getImproperPositionDetail = () => {
         }
     }
     return data
-}
+} 
 const getproperPositionDetail = () => {
     let data = []
     for (let index = 0; index < MAX_LETTER_COUNT; index++) {
@@ -101,20 +101,9 @@ const selectLetter = (letterId) => {
         }
     })
 }
- 
-function loadData() {
-    /* let inValidLetterData = ['C', 'E', 'K', 'O', 'R', 'T', 'U']
-    let removalLetterAtPosition = [
-        [],
-        [],
-        ['P', 'L'],
-        ['I'],
-        [],
-    ]
-    let perfectPosition = ['S', 'P', '', '', '']  */
- 
- 
+$(document).ready(() => {
     $("#GenerateSolutionBtn").on('click', () => {
+        console.log('Clicked');
 
        let inValidLetterData = LETTER_DETAIL.filter(letterObj => letterObj.Status).map(item => item.Letter)
         let removalLetterAtPosition = getImproperPositionDetail()
@@ -135,4 +124,6 @@ function loadData() {
             $(`#ImpropPosition${index}`).val('')  
         }
     })
-}
+    
+    runTestCase(TEST_CASE_01);
+}) 
