@@ -31,22 +31,23 @@ const chekWrongPositionLetter = (removalLetterAtPosition, word) => {
     return true
 }
 
-const IsInValidLetter = (inValidLetterData, word) => {
+const IsInValidLetterPresent = (inValidLetterData, word) => { 
     return inValidLetterData.filter(letter => word.indexOf(letter) > -1).length > 0
 }
 
 const retrievePossibleOutcome = (inValidLetterData, removalLetterAtPosition, perfectPosition) => {
-    let filteredDataSet = DICTIONARY_WORD_DATA.filter(word => {
-        if (!IsInValidLetter(inValidLetterData, word) &&
+    let filteredDataSet = DICTIONARY_WORD_DATA.filter(word => { 
+        if (!IsInValidLetterPresent(inValidLetterData, word) &&
             chekWrongPositionLetter(removalLetterAtPosition, word) &&
             checkCorrectPositionLetter(perfectPosition, word)) {
             return word
         }
     });
-    let presentLetterArray = Array.prototype.concat.apply([], removalLetterAtPosition);
+    let presentLetterArray = Array.prototype.concat.apply([], removalLetterAtPosition); 
     return filteredDataSet.filter(outComeWord => isEveryLetterPresent(outComeWord, presentLetterArray));
 
 }
+
 const renderOutcomeDetail = (possibleOutcome) => {
 
     $('#SolutionHeading').css('display', 'block')
@@ -114,4 +115,14 @@ $(document).ready(() => {
             $(`#ImpropPosition${index}`).val('')
         }
     })
+    $('#HamburgerIcon').on('click',() => { 
+        if($('#InstructionBox').hasClass('show-article')){
+            $('#InstructionBox').addClass('hide-article')
+            $('#InstructionBox').removeClass('show-article')
+            
+        }else{
+            $('#InstructionBox').addClass('show-article')
+            $('#InstructionBox').removeClass('hide-article')
+        } 
+    }) 
 }) 
