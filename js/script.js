@@ -35,52 +35,38 @@ const IsInValidLetter = (inValidLetterData, word) => {
     return inValidLetterData.filter(letter => word.indexOf(letter) > -1).length > 0
 }
 
-const retrievePossibleOutcome = (inValidLetterData, removalLetterAtPosition, perfectPosition) => {
-
-    let filteredDataSet = DICTIONARY_WORD_DATA.filter(word => {
-       
+const retrievePossibleOutcome = (inValidLetterData, removalLetterAtPosition, perfectPosition) => { 
+    let filteredDataSet = DICTIONARY_WORD_DATA.filter(word => { 
         if (!IsInValidLetter(inValidLetterData, word) &&
             chekWrongPositionLetter(removalLetterAtPosition, word) &&
             checkCorrectPositionLetter(perfectPosition, word)) {
             return word
-        }
-
-    });
-
+        } 
+    }); 
     let presentLetterArray = Array.prototype.concat.apply([], removalLetterAtPosition);
-    return [...new Set(filteredDataSet.map(word => word))]
-        .filter(outComeWord => isEveryLetterPresent(outComeWord, presentLetterArray));
+    return filteredDataSet.filter(outComeWord => isEveryLetterPresent(outComeWord, presentLetterArray));
 
 }
 const renderOutcomeDetail = (possibleOutcome) => {
     let content = ''
     possibleOutcome.forEach(word => {
         content += `<a href="https://www.google.com/search?q=${word}+meaning" target="_blank">${word}</a> `
-    });
-
+    }); 
     $("#OutComeContainer").html(content)
 }
 const getImproperPositionDetail = () => {
     let data = []
     for (let index = 0; index < MAX_LETTER_COUNT; index++) {
-        if ($(`#ImpropPosition${index}`).val() != '') {
-            let convertedData = []
-            $(`#ImpropPosition${index}`).val().split(',')
-                .forEach(element => {
-                    convertedData.push(element.toUpperCase())
-                })
-            data.push(convertedData)
-        } else {
-            data.push([])
-        }
-    }
+        let textValue = $(`#ImpropPosition${index}`).val().replace(/\s/g,'').toUpperCase()   
+        data.push(textValue != '' ? textValue.split(',') : [])
+    } 
     return data
 }
 const getproperPositionDetail = () => {
     let data = []
     for (let index = 0; index < MAX_LETTER_COUNT; index++) {
-        data.push($(`#propPosition${index}`).val().toUpperCase())
-    }
+        data.push($(`#propPosition${index}`).val().replace(/\s/g,'').toUpperCase())
+    } 
     return data
 }
 
@@ -120,6 +106,5 @@ $(document).ready(() => {
             $(`#ImpropPosition${index}`).val('')
         }
     })
-
-    runTestCase(TEST_CASE_02);
+ 
 }) 
