@@ -93,7 +93,7 @@ $(document).ready(() => {
 
         let possibleOutcome = retrievePossibleOutcome(inValidLetterData, removalLetterAtPosition, perfectPosition)
         renderOutcomeDetail(possibleOutcome)
-        document.getElementById('OutComeContainer').focus();
+        $('#OutComeContainer').focus();
     })
     $("#ClearBtn").on('click', () => {
         LETTER_DETAIL.filter(letterObj => {
@@ -106,5 +106,4 @@ $(document).ready(() => {
             $(`#ImpropPosition${index}`).val('')
         }
     })
- 
 }) 
