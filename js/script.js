@@ -114,5 +114,4 @@ $(document).ready(() => {
             $(`#ImpropPosition${index}`).val('')
         }
     })
-    runTestCase(TEST_CASE_02)
 }) 
