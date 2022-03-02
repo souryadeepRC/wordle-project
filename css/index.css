@@ -52,37 +52,70 @@ i {
 }
 
 button {
-    width: 100%; 
-    box-shadow: inset 0px 2px 14px 0px #1b2c74; 
+    width: 100%;
+    box-shadow: inset 0px 2px 14px 0px #1b2c74;
 }
-#EliminatedLetterContainer{
+
+#EliminatedLetterContainer {
     padding: 2vw;
 }
-#SolutionHeading{
+
+#SolutionHeading {
     display: none;
 }
+#HamburgerIcon{
+    cursor: pointer;
+}
+article {
+    position: absolute;
+    background: #a0d1dd;
+    z-index: 1;
+    color: #d0e9f5;
+    display: block;
+    height: calc(100% - 0vh);
+    color: black;
+    width: 0;
+    overflow-x: hidden;
+
+}
+
+.show-article {
+    width: 70vw;
+    transition: 0.5s;
+    box-shadow: 5px 4px 19px 8px #0a175e9e;
+}
+
+.hide-article {
+    width: 0;
+    transition: 0.5s;
+}
+
+ul {
+    font-size: 0.8rem;
+    padding: 0 21px;
+}
+
 @media screen and (min-width: 480px) {
     p {
         width: 7%;
     }
 
     a {
-        width: 15%;
-    }
-}
-
-@media screen and (min-width: 480px) {
-    a {
         width: 8%;
     }
-}
 
-@media screen and (min-width: 480px) {
     .improper-box {
         flex-direction: row;
     }
 
     button {
         width: 40vw;
+    }
+
+    .show-article {
+        width: 40vw;
+    }
+    ul {
+        font-size: 1rem;
     }
 }

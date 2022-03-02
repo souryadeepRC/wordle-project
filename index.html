@@ -18,13 +18,45 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script type="text/javascript" src="data/Five_Letter_Word.js"></script>
     <script type="text/javascript" src="data/config.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/script.js"></script> 
 </head>
 
-<body>
-    <div id="WORDList"></div>
-    <div class="">
-        <h5 class="text-center text-uppercase m-0 py-2 bg-black text-white">Eliminated Letter</h5> 
+<body> 
+    <div>
+        <header class="d-flex text-center text-uppercase py-2 bg-black text-white">
+            <div class="col-1" id="HamburgerIcon">&#9776;</div>
+            <h5 class="col-10  m-0 ">Eliminated Letter</h5> 
+        </header>
+        <article id="InstructionBox">
+            <div class="p-2">
+                <h6 class="text-center text-uppercase ">Instruction</h6>
+                <hr class="m-0">
+                <ul>
+                    <li>If you can find some letters which 
+                        will not be present in main result. Select them 
+                        in <b>ELIMINATED LETTER</b> section. 
+                        Click once to select. Click again to de-select that letter, if you have selcted that mistakenly. 
+                    </li>
+                    <li>If you can find some letters which 
+                        will be present in main result, but you have set them in wrong position. You can fill those  
+                        in <b>IMPROPER POSITION</b> section. 
+                        Fill letters based on their position box. If there are multiple letters for one position, 
+                        then fill them in comma seperated way. 
+                        [e.g. <u><i>P</i></u> <u>&nbsp;&nbsp;</u> <u><i>A,P</i></u> <u>&nbsp;&nbsp;</u> <u>&nbsp;&nbsp;</u> ]
+                    </li>
+                    <li>If you can find some letters which 
+                        will be present in main result, but you have set them in correct position. You can fill those  
+                        in <b>PROPER POSITION</b> section. 
+                        Fill letters based on their position box. 
+                        [e.g. <u><i>R</i></u> <u>&nbsp;&nbsp;</u> <u><i>C</i></u> <u>&nbsp;&nbsp;</u> <u>&nbsp;&nbsp;</u> ]
+                    </li>
+                    <li>Click on <b>Generate Possible Solution</b> to generate possible word solution</li>
+                    <li>Click <b>Clear</b> to clear all the filled data in <b>ELIMINATED LETTER</b> ,<b>IMPROPER POSITION</b>,
+                        <b>PROPER POSITION</b></li>
+                    <li>If you click the result outcomes , in new tab you can see it's meaning in google automatically.</li>
+                </ul>
+            </div>
+        </article>
         <div class="d-flex flex-wrap m-auto justify-content-between" id="EliminatedLetterContainer">
             <p id="A" onClick="selectLetter('A')">A</p>
             <p id="B" onClick="selectLetter('B')">B</p>
