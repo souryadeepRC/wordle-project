@@ -106,4 +106,5 @@ $(document).ready(() => {
             $(`#ImpropPosition${index}`).val('')
         }
     })
+    
 }) 
