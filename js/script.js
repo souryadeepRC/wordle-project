@@ -31,18 +31,15 @@ const chekWrongPositionLetter = (removalLetterAtPosition, word) => {
     return true
 }
 
-const checkInValidLetter = (inValidLetterData, word) => {
-    for (let index = 0; index < inValidLetterData.length; index++) {
-        if (word.indexOf(inValidLetterData[index]) > 0) return false
-    }
-    return true
+const IsInValidLetter = (inValidLetterData, word) => {
+    return inValidLetterData.filter(letter => word.indexOf(letter) > -1).length > 0
 }
 
 const retrievePossibleOutcome = (inValidLetterData, removalLetterAtPosition, perfectPosition) => {
 
-    let filteredDataSet = DICTIONARY_WORD_DATA.filter((word, index) => {
-
-        if (checkInValidLetter(inValidLetterData, word) &&
+    let filteredDataSet = DICTIONARY_WORD_DATA.filter(word => {
+       
+        if (!IsInValidLetter(inValidLetterData, word) &&
             chekWrongPositionLetter(removalLetterAtPosition, word) &&
             checkCorrectPositionLetter(perfectPosition, word)) {
             return word
@@ -52,7 +49,7 @@ const retrievePossibleOutcome = (inValidLetterData, removalLetterAtPosition, per
 
     let presentLetterArray = Array.prototype.concat.apply([], removalLetterAtPosition);
     return [...new Set(filteredDataSet.map(word => word))]
-            .filter(outComeWord => isEveryLetterPresent(outComeWord, presentLetterArray));
+        .filter(outComeWord => isEveryLetterPresent(outComeWord, presentLetterArray));
 
 }
 const renderOutcomeDetail = (possibleOutcome) => {
@@ -78,7 +75,7 @@ const getImproperPositionDetail = () => {
         }
     }
     return data
-} 
+}
 const getproperPositionDetail = () => {
     let data = []
     for (let index = 0; index < MAX_LETTER_COUNT; index++) {
@@ -103,13 +100,12 @@ const selectLetter = (letterId) => {
 }
 $(document).ready(() => {
     $("#GenerateSolutionBtn").on('click', () => {
-        console.log('Clicked');
 
-       let inValidLetterData = LETTER_DETAIL.filter(letterObj => letterObj.Status).map(item => item.Letter)
+        let inValidLetterData = LETTER_DETAIL.filter(letterObj => letterObj.Status).map(item => item.Letter)
         let removalLetterAtPosition = getImproperPositionDetail()
-        let perfectPosition = getproperPositionDetail() 
- 
-       let possibleOutcome = retrievePossibleOutcome(inValidLetterData, removalLetterAtPosition, perfectPosition)  
+        let perfectPosition = getproperPositionDetail()
+
+        let possibleOutcome = retrievePossibleOutcome(inValidLetterData, removalLetterAtPosition, perfectPosition)
         renderOutcomeDetail(possibleOutcome)
         document.getElementById('OutComeContainer').focus();
     })
@@ -121,9 +117,9 @@ $(document).ready(() => {
         })
         for (let index = 0; index < MAX_LETTER_COUNT; index++) {
             $(`#propPosition${index}`).val('')
-            $(`#ImpropPosition${index}`).val('')  
+            $(`#ImpropPosition${index}`).val('')
         }
     })
-    
-    runTestCase(TEST_CASE_01);
+
+    runTestCase(TEST_CASE_02);
 }) 
